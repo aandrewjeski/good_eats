@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  belongs_to :restaurant
+  belongs_to :restaurant, :user
   validates :rating,
     presence: true,
     numericality: { only_integer: true },
