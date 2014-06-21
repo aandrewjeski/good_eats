@@ -13,6 +13,4 @@ class Review < ActiveRecord::Base
     too_short: "A description must have at least %{count} words",
     too_long: "A description must have at most %{count} words"
   }
-  validates :restaurant_id,
-    presence: true
 end
