@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   def index
-    @restaurants = Restaurant.last(10)
+    @restaurants = Restaurant.order('id DESC').limit('10')
   end
 
   def show
