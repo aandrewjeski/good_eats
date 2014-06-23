@@ -1,8 +1,38 @@
 <h3><%= @restaurant.name %></h3>
 <%= @restaurant.category %>
+
 <div>
-<h4> Address: </h4>
-<%= @restaurant.address %><br>
-<%= "#{restaurant.city}, #{restaurant.state} #{restaurant.zipcode}"  %>
+  <h4> Address: </h4>
+  <%= @restaurant.address %><br>
+  <%= "#{@restaurant.city}, #{@restaurant.state} #{@restaurant.zipcode}"  %>
 </div>
-<%= restaurant.description %>
+
+<h4> Description </h4>
+<div>
+  <%= @restaurant.description %>
+</div>
+
+<br>
+
+<div>
+  <h4> Reviews </h4>
+  <table style="width:300px">
+    <tr>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Posted At</th>
+    </tr>
+    <tr>
+      <% @restaurant.reviews.each do |review| %>
+        <td><%= review.rating %></td>
+        <td><%= review.body %></td>
+        <td><%= review.created_at %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>
+
+<br>
+<%= link_to "Back to Restaurants", restaurants_path(@restaurants) %>
+
+
